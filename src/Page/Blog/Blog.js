@@ -31,7 +31,7 @@ const Blog = () => {
       </div>
       <div className="q4">
         <h2>React vs. Angular vs. Vue?</h2>
-        <table class="table">
+        <table className="table">
   <thead>
     <tr>
       <th scope="col">Categories</th>
