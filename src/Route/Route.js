@@ -4,6 +4,7 @@ import {
 import Footer from "../components/Footer/Footer";
 import Nav from "../components/Nav/Nav";
 import Blog from "../Page/Blog/Blog";
+import ErrorPage from "../Page/ErrorPage/ErrorPage";
 
 const Router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const Router = createBrowserRouter([
         <Footer></Footer>
       </>
     ),
-    errorElement: <></> ,
+    errorElement: <ErrorPage></ErrorPage> ,
     children: [
         {
           path: "/blogs",
