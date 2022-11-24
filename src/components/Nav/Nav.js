@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { userInfo } from '../../context/AuthProvider';
-
 const Nav = () => {
   const {user,logout} = useContext(userInfo);
 
@@ -9,7 +8,7 @@ const Nav = () => {
     logout()
   };
     return (
-        <div>
+        <div className='container d-flex justify-content-evenly'>
           <Link to="/blogs" className="text-decoration-none fs-5">
           Blogs
         </Link>
@@ -25,6 +24,11 @@ const Nav = () => {
             Login
           </Link>
           }
+           {/* <button class="btn bg-light d-lg-none" type="button"  data-bs-toggle="offcanvas"  data-bs-target="#offcanvasResponsive"  aria-controls="offcanvasResponsive">
+      <span class="navbar-toggler-icon">
+        <GoThreeBars></GoThreeBars>
+      </span>
+    </button> */}
        
         </div>
     );

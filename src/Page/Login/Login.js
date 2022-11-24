@@ -52,18 +52,16 @@ const Login = () => {
             <button className="w-100 btn btn-outline-primary" type="submit">
               Log in
             </button>
-
-            <div className="form-check d-flex mt-2">
-            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-            <label className="form-check-label ms-2" htmlFor="flexCheckDefault">
-               Seller
-            </label>
-           </div>
           </form>
-          <div className="google-create d-flex justify-content-center mt-2">
+          <div className="google-create d-flex justify-content-between mt-2">
             <div className="google">
               <Link onClick={handleGoogle}>
                 <FcGoogle className="fs-1"></FcGoogle>
+              </Link>
+            </div>
+            <div className="create">
+              <Link to="/register">
+                <button className="btn btn-primary">Register</button>
               </Link>
             </div>
           </div>
