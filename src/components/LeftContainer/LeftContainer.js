@@ -1,12 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { userInfo } from '../../context/AuthProvider';
+import AdminLeft from '../AdminLeft/AdminLeft';
+import SellerLeft from '../SellerLeft/SellerLeft';
 
 const LeftContainer = () => {
+    const {user,role,setRole} = useContext(userInfo);
+    const email = user?.email;
+   
+    useEffect(()=>{
+        fetch(`http://localhost:5000/${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+            setRole(data.role)
+      });
+    },[user])
     return (
-        <div className='d-flex flex-column'>
-         <Link to='/allSellers'>All Sellers</Link>
-         <Link to='/allBuyers'> All Buyers</Link>
-         <Link to='/reportedItems'>Reported Items</Link>
+        <div className=''>
+            {
+              role === 'seller' ? <SellerLeft></SellerLeft> : undefined
+            }
+            {
+              role === 'admin' ? <AdminLeft></AdminLeft> : undefined
+            }
         </div>
     );
 };

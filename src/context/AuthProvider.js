@@ -11,6 +11,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
+    const [role,setRole] = useState('');
     const provider = new GoogleAuthProvider();
 
     const googleSignIn = () => {
@@ -31,14 +32,15 @@ const AuthProvider = ({ children }) => {
         })
           .then(() => {})
           .catch((error) => {
-            alert("something wrong");
+            const errorMessage = error.message;
+            alert( 'auth', errorMessage);
           });
       };
      
       useEffect(() => {
         onAuthStateChanged(auth, (user) => {
           if (user) {
-            // console.log(user);
+            console.log(user);
             // const uid = user.uid;
             setUser(user);
           } else {
@@ -54,7 +56,9 @@ const AuthProvider = ({ children }) => {
         user,
         logout,
         createUser,
-        updateUser
+        updateUser,
+        role,
+        setRole
       };
     return (
         <div>

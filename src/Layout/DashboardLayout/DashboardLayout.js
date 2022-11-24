@@ -1,8 +1,8 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import LeftContainer from '../../components/LeftContainer/LeftContainer';
 import Nav from "../../components/Nav/Nav";
-import RightContainer from '../../components/RightContainer/RightContainer';
 const DashboardLayout = () => {
   return (
     <div>
@@ -12,7 +12,7 @@ const DashboardLayout = () => {
         <LeftContainer></LeftContainer>
         </div>
         <div className="right">
-        <RightContainer></RightContainer>
+        <Outlet></Outlet>
         </div>
       </div>
       {/* <div
