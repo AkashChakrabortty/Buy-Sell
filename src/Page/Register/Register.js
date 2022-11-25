@@ -16,7 +16,7 @@ const Register = () => {
         const name = event.target.name.value;
         const photoUrl = event.target.photoUrl.value;
         const role = isSeller;
-        console.log(role)
+        // console.log(role)
         const userdb = {
           email:email,
           password: password,
@@ -37,7 +37,7 @@ const Register = () => {
             })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+              // console.log(data);
              });
           })
           .catch((error) => {

@@ -5,7 +5,6 @@ import AddAProuct from '../components/AddAProuct/AddAProuct';
 import AllBuyers from '../components/AllBuyers/AllBuyers';
 import AllSellers from '../components/AllSellers/AllSellers';
 import Footer from "../components/Footer/Footer";
-import MyBuyers from '../components/MyBuyers/MyBuyers';
 import MyProducts from '../components/MyProducts/MyProducts';
 import Nav from "../components/Nav/Nav";
 import ReportedItems from '../components/ReportedItems/ReportedItems';
@@ -75,10 +74,6 @@ const Router = createBrowserRouter([
     {
       path: "/dashboard/myProducts",
       element: <MyProducts></MyProducts>
-    },
-    {
-      path: "/dashboard/myBuyers",
-      element: <MyBuyers></MyBuyers>
     },
     {
       path: "/dashboard/addAProducts",
