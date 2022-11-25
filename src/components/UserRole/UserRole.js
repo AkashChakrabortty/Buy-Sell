@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { userInfo } from '../../context/AuthProvider';
 import AddAProuct from '../AddAProuct/AddAProuct';
+import AllSellers from '../AllSellers/AllSellers';
 
 const UserRole = () => {
     const {role} = useContext(userInfo);
@@ -8,6 +9,9 @@ const UserRole = () => {
         <div>
             {
                 role === 'seller' ? <AddAProuct></AddAProuct> : undefined
+            }
+            {
+                role === 'admin' ? <AllSellers></AllSellers> : undefined
             }
         </div>
     );

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
 
 const Login = () => {
-    const { googleSignIn } = useContext(userInfo);
+    const { googleSignIn , login } = useContext(userInfo);
   const handleGoogle = () => {
     googleSignIn()
     .then((result) => {
@@ -20,7 +20,11 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
-   
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    login(email, password)
   };
   return (
     <div>

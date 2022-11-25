@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
 
 
 const Register = () => {
     const { createUser, updateUser} = useContext(userInfo);
     const [isSeller,setIsSeller] = useState(false);
+    const navigate = useNavigate();
 
     const handleRole = () => {
       setIsSeller(!isSeller)
@@ -37,7 +39,8 @@ const Register = () => {
             })
             .then((res) => res.json())
             .then((data) => {
-              // console.log(data);
+              console.log(data);
+              navigate('/')
              });
           })
           .catch((error) => {
