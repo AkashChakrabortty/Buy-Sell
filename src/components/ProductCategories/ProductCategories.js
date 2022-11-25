@@ -12,6 +12,7 @@ const ProductCategories = () => {
   // console.log(data);
   return (
     <div className="container">
+      <h2 className="text-center">Product Categories</h2>
       <div className="row mt-3 mb-3 row-cols-2 row-cols-sm-3">
         <div className="redmi">
           <h2>Redmi</h2>
