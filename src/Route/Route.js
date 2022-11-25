@@ -11,6 +11,7 @@ import Nav from "../components/Nav/Nav";
 import ReportedItems from '../components/ReportedItems/ReportedItems';
 import UserRole from '../components/UserRole/UserRole';
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
+import AllCategoryProducts from "../Page/AllCategoryProducts/AllCategoryProducts";
 import Blog from "../Page/Blog/Blog";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import Home from "../Page/Home/Home";
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/category/:id",
+        element: <AllCategoryProducts></AllCategoryProducts>
       },
     ]
   },

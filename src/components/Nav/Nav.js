@@ -12,6 +12,9 @@ const Nav = () => {
           <Link to="/blogs" className="text-decoration-none fs-5">
           Blogs
         </Link>
+        <Link to="/" className="text-decoration-none fs-5">
+          Home
+        </Link>
         {
             user? <>
              <Link to="/dashboard" className="text-decoration-none fs-5">
@@ -24,11 +27,7 @@ const Nav = () => {
             Login
           </Link>
           }
-           {/* <button class="btn bg-light d-lg-none" type="button"  data-bs-toggle="offcanvas"  data-bs-target="#offcanvasResponsive"  aria-controls="offcanvasResponsive">
-      <span class="navbar-toggler-icon">
-        <GoThreeBars></GoThreeBars>
-      </span>
-    </button> */}
+          
        
         </div>
     );
