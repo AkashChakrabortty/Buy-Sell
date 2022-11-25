@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
 
 const Login = () => {
     const { googleSignIn , login } = useContext(userInfo);
+    const navigate = useNavigate();
   const handleGoogle = () => {
     googleSignIn()
     .then((result) => {
@@ -25,6 +26,9 @@ const Login = () => {
     const password = event.target.password.value;
 
     login(email, password)
+    .then( ()=> {
+      navigate('/')
+    } )
   };
   return (
     <div>

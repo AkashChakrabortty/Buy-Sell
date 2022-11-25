@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { userInfo } from '../../context/AuthProvider';
 import AdminLeft from '../AdminLeft/AdminLeft';
+import BuyerLeft from '../BuyerLeft/BuyerLeft';
 import SellerLeft from '../SellerLeft/SellerLeft';
 
 const LeftContainer = () => {
@@ -21,6 +22,9 @@ const LeftContainer = () => {
             }
             {
               role === 'admin' ? <AdminLeft></AdminLeft> : undefined
+            }
+             {
+              role === 'buyer' ? <BuyerLeft></BuyerLeft>: undefined
             }
         </div>
     );

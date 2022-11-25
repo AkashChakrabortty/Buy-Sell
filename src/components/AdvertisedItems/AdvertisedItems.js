@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 const AdvertisedItems = () => {
     const [data,setData] = useState([]);
@@ -7,7 +8,7 @@ const AdvertisedItems = () => {
         .then(res => res.json())
         .then(data => setData(data))
     } ,[])
-    console.log(data)
+    // console.log(data)
     return (
         <div className='container'>
             <div className="row row-cols-1 row-cols-sm-2">
@@ -35,7 +36,9 @@ const AdvertisedItems = () => {
                        Year Of Purchase:{item.YearOfPurchase}
                      </h5>
                      <h5 class="card-title">
-                       Seller name:{item.SellerName}
+                       Seller name:{item.SellerName}{item.SellerVerify ? (
+                        <AiOutlineCheck className="text-primary"></AiOutlineCheck>
+                      ) : undefined}
                      </h5>
                      <h5 class="card-title">Post Time:{item.PostTime}</h5>
                      <h5 class="card-title">Sales status:{item.SalesStatus}</h5>

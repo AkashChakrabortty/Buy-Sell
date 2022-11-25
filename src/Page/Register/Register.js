@@ -24,7 +24,8 @@ const Register = () => {
           password: password,
           name: name,
           photoUrl: photoUrl,
-          role: `${isSeller? 'seller' : 'buyer'}`
+          role: `${isSeller? 'seller' : 'buyer'}`,
+          verify: false
         }
         createUser(email, password)
           .then((userCredential) => {

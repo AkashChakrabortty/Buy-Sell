@@ -57,13 +57,13 @@ const AllSellers = () => {
                   <div class="card-body">
                     <h5 class="card-title">
                       Name:{user.name}
-                      {user.SellerVerify ? (
+                      {user.verify ? (
                         <AiOutlineCheck className="text-primary"></AiOutlineCheck>
                       ) : undefined}
                     </h5>
                     <h5 class="card-title">Email:{user.email}</h5>
                   </div>
-                  {user.SellerVerify ? undefined : (
+                  {user.verify ? undefined : (
                     <button
                       className="w-100 btn btn-outline-primary mb-2"
                       type="submit"

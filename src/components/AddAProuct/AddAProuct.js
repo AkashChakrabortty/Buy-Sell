@@ -73,6 +73,8 @@ const AddAProuct = () => {
         const errorMessage = error.message;
         alert(errorMessage);
       });
+
+      
     })
 
    

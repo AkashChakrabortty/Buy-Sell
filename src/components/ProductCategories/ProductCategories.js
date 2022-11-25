@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { AiOutlineCheck } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const ProductCategories = () => {
   const [data, setData] = useState([]);
@@ -42,7 +43,9 @@ const ProductCategories = () => {
                           Year Of Purchase:{item.YearOfPurchase}
                         </h5>
                         <h5 class="card-title">
-                          Seller name:{item.SellerName}
+                          Seller name:{item.SellerName}{item.SellerVerify ? (
+                        <AiOutlineCheck className="text-primary"></AiOutlineCheck>
+                      ) : undefined}
                         </h5>
                         <h5 class="card-title">Post Time:{item.PostTime}</h5>
                       </div>
@@ -90,7 +93,9 @@ const ProductCategories = () => {
                           Year Of Purchase:{item.YearOfPurchase}
                         </h5>
                         <h5 class="card-title">
-                          Seller name:{item.SellerName}
+                          Seller name:{item.SellerName}{item.SellerVerify ? (
+                        <AiOutlineCheck className="text-primary"></AiOutlineCheck>
+                      ) : undefined}
                         </h5>
                         <h5 class="card-title">Post Time:{item.PostTime}</h5>
                       </div>
@@ -138,7 +143,9 @@ const ProductCategories = () => {
                           Year Of Purchase:{item.YearOfPurchase}
                         </h5>
                         <h5 class="card-title">
-                          Seller name:{item.SellerName}
+                          Seller name:{item.SellerName}{item.SellerVerify ? (
+                        <AiOutlineCheck className="text-primary"></AiOutlineCheck>
+                      ) : undefined}
                         </h5>
                         <h5 class="card-title">Post Time:{item.PostTime}</h5>
                       </div>
