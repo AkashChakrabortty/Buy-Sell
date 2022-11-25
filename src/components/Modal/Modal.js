@@ -10,15 +10,16 @@ const Modal = ({item}) => {
         // console.log(item)
         const location = event.target.location.value;
         const mobile = event.target.mobile.value;
-
+       
         const bookingInfo = {
-            _id: item._id,
+            ProductPreviousId: item._id,
             BuyerName: user.displayName,
             BuyerEmail: user.email,
             ProductName: item.ProductName,
             ProductResalePrice: item.ProductResalePrice,
             BuyerMobile: mobile ,
-            MeetingLocation: location
+            MeetingLocation: location,
+            ProductPhoto: item.ProductPhotoUrl
         }
    
         fetch("http://localhost:5000/booking", {

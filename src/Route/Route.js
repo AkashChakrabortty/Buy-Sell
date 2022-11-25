@@ -8,6 +8,7 @@ import Footer from "../components/Footer/Footer";
 import MyOrders from "../components/MyOrders/MyOrders";
 import MyProducts from '../components/MyProducts/MyProducts';
 import Nav from "../components/Nav/Nav";
+import Payment from "../components/Payment/Payment";
 import ReportedItems from '../components/ReportedItems/ReportedItems';
 import UserRole from '../components/UserRole/UserRole';
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
@@ -83,6 +84,10 @@ const Router = createBrowserRouter([
     {
       path: "/dashboard/myOrders",
       element: <MyOrders></MyOrders>
+    },
+    {
+      path: "/dashboard/pay/:id",
+      element: <Payment></Payment>
     }
     ]
   },

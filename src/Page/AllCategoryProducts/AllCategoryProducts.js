@@ -16,6 +16,10 @@ const AllCategoryProducts = () => {
       });
   }, []);
   console.log(item);
+
+  const handleReport = () => {
+    
+  }
   return (
     <div className="container">
       <h2 className="text-center">{location.pathname.split("/")[2]}</h2>
@@ -54,6 +58,15 @@ const AllCategoryProducts = () => {
                      onClick={()=>setItem(item)}
                     >
                       Book now
+                     
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="w-100 btn btn-outline-primary"                 
+                     onClick={()=>handleReport(item)}
+                    >
+                      Report to Admin
                      
                     </button>
                 </div>
