@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import Modal from "../../components/Modal/Modal";
 
 const AllCategoryProducts = () => {
-
+  const notify = () => toast("Report successfuly!");
   const location = useLocation();
   // console.log(location.pathname.split('/')[2])
   const [item,setItem]= useState([]);
@@ -17,8 +18,23 @@ const AllCategoryProducts = () => {
   }, []);
   console.log(item);
 
-  const handleReport = () => {
-    
+  const handleReport = (productInfo) => {
+    fetch("http://localhost:5000/report", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(productInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        notify();
+        console.log(data);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   }
   return (
     <div className="container">
@@ -63,7 +79,7 @@ const AllCategoryProducts = () => {
 
                     <button
                       type="submit"
-                      className="w-100 btn btn-outline-primary"                 
+                      className="w-100 btn btn-outline-primary mt-2"                 
                      onClick={()=>handleReport(item)}
                     >
                       Report to Admin
