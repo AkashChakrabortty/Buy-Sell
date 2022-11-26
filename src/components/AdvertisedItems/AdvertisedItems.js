@@ -1,12 +1,15 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai';
-
 const AdvertisedItems = () => {
     const [data,setData] = useState([]);
     useEffect( ()=>{
-        fetch('http://localhost:5000/advertiseItems')
-        .then(res => res.json())
-        .then(data => setData(data))
+        // fetch('http://localhost:5000/advertiseItems')
+        // .then(res => res.json())
+        // .then(data => setData(data))
+
+        axios.get('http://localhost:5000/advertiseItems')
+        .then(data => setData(data.data)) 
     } ,[])
     // console.log(data)
     return (
