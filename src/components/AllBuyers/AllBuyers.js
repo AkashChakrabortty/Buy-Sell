@@ -1,24 +1,24 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+// import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 const AllBuyers = () => {
-    // const [users,setUsers] = useState([]);
+    const [users,setUsers] = useState([]);
     const notify = () => toast("Delete successfuly!");
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/user')
-    //     .then(res => res.json())
-    //     .then(data => setUsers(data))
-    // },[])
+    useEffect(()=>{
+        fetch('https://server12.vercel.app/user')
+        .then(res => res.json())
+        .then(data => setUsers(data))
+    },[])
 
-    const {users=[]} = useQuery({
-      queryKey: ['user'],
-      queryFn: ()=>  fetch('http://localhost:5000/user')
-      .then((res) => res.json())
-    })
+    // const {users=[]} = useQuery({
+    //   queryKey: ['user'],
+    //   queryFn: ()=>  fetch('https://server12.vercel.app/user')
+    //   .then((res) => res.json())
+    // })
     const handleDelete =(user)=> {
         console.log(user.email)
-        fetch(`http://localhost:5000/deleteUser/${user.email}`, {
+        fetch(`https://server12.vercel.app/deleteUser/${user.email}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

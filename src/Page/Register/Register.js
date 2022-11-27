@@ -31,7 +31,7 @@ const Register = () => {
           .then((userCredential) => {
             updateUser(name, photoUrl);
 
-            fetch('http://localhost:5000/storeUser', {
+            fetch('https://server12.vercel.app/storeUser', {
               method: 'POST',
               headers: {
                 "content-type": "application/json",

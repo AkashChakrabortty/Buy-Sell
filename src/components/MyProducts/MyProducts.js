@@ -8,7 +8,7 @@ const MyProducts = () => {
 //    console.log(user)
 const notify = (p) => toast(p);
   useEffect(() => {
-    fetch(`http://localhost:5000/dashboard/myProducts/${user.email}`)
+    fetch(`https://server12.vercel.app/dashboard/myProducts/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -17,7 +17,7 @@ const notify = (p) => toast(p);
 
   const handleAdvertise = (item)=> {
     // console.log(item);
-    fetch('http://localhost:5000/advertise/', {
+    fetch('https://server12.vercel.app/advertise/', {
       method: 'POST',
       headers: {
         "content-type": "application/json",
@@ -36,7 +36,7 @@ const notify = (p) => toast(p);
   
   const handleDelete = (item)=> {
     // console.log(item);
-    fetch(`http://localhost:5000/advertise/${item._id}`, {
+    fetch(`https://server12.vercel.app/advertise/${item._id}`, {
       method: 'DELETE',
       headers: {
         "content-type": "application/json",

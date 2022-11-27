@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ProductCategories = () => {
   // const [data, setData] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/ProductCategories`)
+  //   fetch(`https://server12.vercel.app/ProductCategories`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setData(data);
@@ -13,7 +13,7 @@ const ProductCategories = () => {
   // }, []);
 const {data=[]} = useQuery({
   queryKey: ['ProductCategories'],
-  queryFn: ()=>  fetch('http://localhost:5000/ProductCategories')
+  queryFn: ()=>  fetch('https://server12.vercel.app/ProductCategories')
   .then((res) => res.json())
 })
   // console.log(data);

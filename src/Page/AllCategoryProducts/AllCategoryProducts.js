@@ -10,7 +10,7 @@ const AllCategoryProducts = () => {
   const [item,setItem]= useState([]);
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/category/${location.pathname.split("/")[2]}`)
+    fetch(`https://server12.vercel.app/category/${location.pathname.split("/")[2]}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -19,7 +19,7 @@ const AllCategoryProducts = () => {
   console.log(item);
 
   const handleReport = (productInfo) => {
-    fetch("http://localhost:5000/report", {
+    fetch("https://server12.vercel.app/report", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -6,7 +6,9 @@ const MyOrders = () => {
     const{user} = useContext(userInfo)
     const [data,setDate] = useState([])
     useEffect(()=> {
-        fetch(`http://localhost:5000/myOrders/${user.email}`)
+        fetch(`https://server12.vercel.app/myOrders/${user.email}`,{
+          mode: 'no-cors'
+        })
         .then(res => res.json())
         .then(data => setDate(data))
     },[])

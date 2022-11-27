@@ -8,7 +8,7 @@ const Payment = () => {
   const [data,setDate] = useState([])
   const [item,setItem] = useState([])
   useEffect(()=> {
-      fetch(`http://localhost:5000/myOrders/${location.pathname.split('/')[3]}`)
+      fetch(`https://server12.vercel.app/myOrders/${location.pathname.split('/')[3]}`)
       .then(res => res.json())
       .then(data =>  setItem(data))
   },[])
