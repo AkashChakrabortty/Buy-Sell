@@ -46,6 +46,15 @@ const AuthProvider = ({ children }) => {
             console.log(user);
             // const uid = user.uid;
             setUser(user);
+
+            fetch(`https://server12.vercel.app/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+              setRole(data.role)
+            
+            });
+
+
           } else {
             // console.log("else onAuthStateChanged");
             setUser();

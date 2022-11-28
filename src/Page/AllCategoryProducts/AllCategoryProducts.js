@@ -8,7 +8,7 @@ const AllCategoryProducts = () => {
   const location = useLocation();
   // console.log(location.pathname.split('/')[2])
   const [item,setItem]= useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   useEffect(() => {
     fetch(`https://server12.vercel.app/category/${location.pathname.split("/")[2]}`)
       .then((res) => res.json())
@@ -39,7 +39,8 @@ const AllCategoryProducts = () => {
   return (
     <div className="container">
       <h2 className="text-center">{location.pathname.split("/")[2]}</h2>
-      <div className="row mt-3 mb-3">
+      {
+        data ?   <div className="row mt-3 mb-3">
         <div className="row-cols-2 row-cols-sm-3 d-flex justify-content-evenly">
           {data?.map((item) => {
             return (
@@ -90,7 +91,13 @@ const AllCategoryProducts = () => {
             );
           })}
         </div>
+      </div> :  <div className="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+       
+       </div>
       </div>
+      }
+    
       <Modal item={item}></Modal>
     </div>
   );

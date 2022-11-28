@@ -52,7 +52,9 @@ const AddAProuct = () => {
         ProductCategory: category,
         ProductPhotoUrl: data.data.display_url,
         PostTime: d.toUTCString(),
-        SellerVerify: false
+        SellerVerify: false,
+        SalesStatus: 'available'
+
       };
 
       // console.log(productInfo)
