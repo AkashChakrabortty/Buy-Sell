@@ -1,13 +1,17 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
-
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const { createUser, updateUser} = useContext(userInfo);
     const [isSeller,setIsSeller] = useState(false);
+    const [email,setEmail] = useState('')
+    const [token,setToken] = useToken(email)
     const navigate = useNavigate();
-
+    if(token){
+      navigate('/')
+    }
     const handleRole = () => {
       setIsSeller(!isSeller)
     }
@@ -40,8 +44,8 @@ const Register = () => {
             })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
-              navigate('/')
+              setEmail(email)
+            
              });
           })
           .catch((error) => {
