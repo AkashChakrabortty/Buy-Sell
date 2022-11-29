@@ -1,7 +1,7 @@
 import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
+    createUserWithEmailAndPassword,
+    getAuth,
+    GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
             // const uid = user.uid;
             setUser(user);
 
-            fetch(`https://server12.vercel.app/${user.email}`)
+            fetch(`https://server-v-2.vercel.app/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
               setRole(data.role)

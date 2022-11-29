@@ -52,7 +52,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <AllCategoryProducts></AllCategoryProducts>
+        element: <PrivateRoute> <AllCategoryProducts></AllCategoryProducts> </PrivateRoute>
       },
     ]
   },

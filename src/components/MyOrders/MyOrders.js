@@ -5,13 +5,12 @@ import { userInfo } from '../../context/AuthProvider';
 const MyOrders = () => {
     const{user} = useContext(userInfo)
     const [data,setDate] = useState()
+    console.log(data)
     useEffect(()=> {
-        fetch(`https://server12.vercel.app/myOrders/${user.email}`,{
-          mode: 'no-cors'
-        })
+        fetch(`https://server-v-2.vercel.app/dashboard/myOrders/${user.email}`)
         .then(res => res.json())
         .then(data => setDate(data))
-    },[])
+    },[user])
 
     const handlePay = () => {
 

@@ -5,19 +5,19 @@ import { userInfo } from "../../context/AuthProvider";
 const MyProducts = () => {
   const [data, setData] = useState();
   const { user } = useContext(userInfo);
-
+  const [reFetch,setReFetch] = useState(false)
   const notify = (p) => toast(p);
   useEffect(() => {
-    fetch(`https://server12.vercel.app/dashboard/myProducts/${user.email}`)
+    fetch(`https://server-v-2.vercel.app/dashboard/myProducts/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
       });
-  }, [user]);
+  }, [user,reFetch]);
 
   const handleAdvertise = (item) => {
-    // console.log(item);
-    fetch("https://server12.vercel.app/advertise/", {
+    console.log(item);
+    fetch("https://server-v-2.vercel.app/dashboard/advertise/", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,7 @@ const MyProducts = () => {
 
   const handleDelete = (item) => {
     console.log(item);
-    fetch(`https://server12.vercel.app/advertise/${item._id}`, {
+    fetch(`https://server-v-2.vercel.app/dashboard/advertise/${item._id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -42,6 +42,7 @@ const MyProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setReFetch(!reFetch)
         notify("Delete successfuly!");
       });
   };

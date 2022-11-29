@@ -21,7 +21,7 @@ const Login = () => {
         verify: false
       }
 
-      fetch('https://server12.vercel.app/storeUser', {
+      fetch('https://server-v-2.vercel.app/storeUser', {
         method: 'POST',
         headers: {
           "content-type": "application/json",

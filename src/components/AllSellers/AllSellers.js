@@ -7,13 +7,13 @@ const AllSellers = () => {
   const [reFetch, setReFetch] = useState(false);
   const notify = (d) => toast(d);
   useEffect(() => {
-    fetch("https://server12.vercel.app/user")
+    fetch("https://server-v-2.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [reFetch]);
   const handleDelete = (user) => {
     console.log(user.email);
-    fetch(`https://server12.vercel.app/deleteUser/${user.email}`, {
+    fetch(`https://server-v-2.vercel.app/deleteUser/${user.email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -21,14 +21,14 @@ const AllSellers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setReFetch(!reFetch)
         notify("Delete successfuly!");
       });
   };
 
   const handlVerify = (user) => {
     console.log(user);
-    fetch(`https://server12.vercel.app/verifyUser/${user.email}`, {
+    fetch(`https://server-v-2.vercel.app/verifyUser/${user.email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

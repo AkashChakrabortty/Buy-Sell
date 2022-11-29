@@ -4,11 +4,11 @@ import { AiOutlineCheck } from 'react-icons/ai';
 const AdvertisedItems = () => {
     const [data,setData] = useState([]);
     useEffect( ()=>{
-        // fetch('https://server12.vercel.app/advertiseItems')
+        // fetch('https://server-v-2.vercel.app/advertiseItems')
         // .then(res => res.json())
         // .then(data => setData(data))
 
-        axios.get('https://server12.vercel.app/advertiseItems')
+        axios.get('https://server-v-2.vercel.app/advertiseItems')
         .then(data => setData(data.data)) 
     } ,[])
     // console.log(data)
