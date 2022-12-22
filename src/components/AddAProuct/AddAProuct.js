@@ -55,7 +55,7 @@ const AddAProuct = () => {
 
       };
 
-       fetch("http://localhost:5000/addAProduct", {
+       fetch("https://buy-sell-server-eosin.vercel.app/addAProduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",

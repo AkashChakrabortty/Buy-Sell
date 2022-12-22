@@ -7,13 +7,13 @@ const AllSellers = () => {
   const [reFetch, setReFetch] = useState(false);
   const notify = (d) => toast(d);
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://buy-sell-server-eosin.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [reFetch]);
   const handleDelete = (user) => {
     console.log(user.email);
-    fetch(`http://localhost:5000/deleteUser/${user.email}`, {
+    fetch(`https://buy-sell-server-eosin.vercel.app/deleteUser/${user.email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -28,7 +28,7 @@ const AllSellers = () => {
 
   const handlVerify = (user) => {
     console.log(user);
-    fetch(`http://localhost:5000/verifyUser/${user.email}`, {
+    fetch(`https://buy-sell-server-eosin.vercel.app/verifyUser/${user.email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

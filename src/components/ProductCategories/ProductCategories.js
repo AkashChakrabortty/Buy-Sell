@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ProductCategories = () => {
 const {data=[]} = useQuery({
   queryKey: ['ProductCategories'],
-  queryFn: ()=>  fetch('http://localhost:5000/ProductCategories')
+  queryFn: ()=>  fetch('https://buy-sell-server-eosin.vercel.app/ProductCategories')
   .then((res) => res.json())
 })
   return (

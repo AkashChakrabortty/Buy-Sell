@@ -8,7 +8,7 @@ const MyProducts = () => {
   const [reFetch,setReFetch] = useState(false)
   const notify = (p) => toast(p);
   useEffect(() => {
-    fetch(`http://localhost:5000/dashboard/myProducts/${user.email}`)
+    fetch(`https://buy-sell-server-eosin.vercel.app/dashboard/myProducts/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -17,7 +17,7 @@ const MyProducts = () => {
 
   const handleAdvertise = (item) => {
     console.log(item);
-    fetch("http://localhost:5000/dashboard/advertise/", {
+    fetch("https://buy-sell-server-eosin.vercel.app/dashboard/advertise/", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -31,7 +31,7 @@ const MyProducts = () => {
   };
 
   const handleDelete = (item) => {
-    fetch(`http://localhost:5000/dashboard/advertise/${item._id}`, {
+    fetch(`https://buy-sell-server-eosin.vercel.app/dashboard/advertise/${item._id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

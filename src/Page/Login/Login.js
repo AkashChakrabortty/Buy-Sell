@@ -22,7 +22,7 @@ const Login = () => {
         verify: false
       }
 
-      fetch('http://localhost:5000/storeUser', {
+      fetch('https://buy-sell-server-eosin.vercel.app/storeUser', {
         method: 'POST',
         headers: {
           "content-type": "application/json",
