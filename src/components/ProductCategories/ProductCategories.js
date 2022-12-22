@@ -3,20 +3,11 @@ import React from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const ProductCategories = () => {
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   fetch(`https://server-v-2.vercel.app/ProductCategories`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setData(data);
-  //     });
-  // }, []);
 const {data=[]} = useQuery({
   queryKey: ['ProductCategories'],
-  queryFn: ()=>  fetch('https://server-v-2.vercel.app/ProductCategories')
+  queryFn: ()=>  fetch('http://localhost:5000/ProductCategories')
   .then((res) => res.json())
 })
-  // console.log(data);
   return (
     <div className="container">
       <h2 className="text-center">Product Categories</h2>

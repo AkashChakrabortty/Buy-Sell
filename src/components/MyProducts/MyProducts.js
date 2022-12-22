@@ -8,7 +8,7 @@ const MyProducts = () => {
   const [reFetch,setReFetch] = useState(false)
   const notify = (p) => toast(p);
   useEffect(() => {
-    fetch(`https://server-v-2.vercel.app/dashboard/myProducts/${user.email}`)
+    fetch(`http://localhost:5000/dashboard/myProducts/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -17,7 +17,7 @@ const MyProducts = () => {
 
   const handleAdvertise = (item) => {
     console.log(item);
-    fetch("https://server-v-2.vercel.app/dashboard/advertise/", {
+    fetch("http://localhost:5000/dashboard/advertise/", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -26,14 +26,12 @@ const MyProducts = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         notify("One product's advertisement successfuly!");
       });
   };
 
   const handleDelete = (item) => {
-    console.log(item);
-    fetch(`https://server-v-2.vercel.app/dashboard/advertise/${item._id}`, {
+    fetch(`http://localhost:5000/dashboard/advertise/${item._id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -41,7 +39,6 @@ const MyProducts = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setReFetch(!reFetch)
         notify("Delete successfuly!");
       });

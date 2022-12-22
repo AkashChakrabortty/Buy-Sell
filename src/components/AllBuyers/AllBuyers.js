@@ -6,19 +6,19 @@ const AllBuyers = () => {
     const [users,setUsers] = useState([]);
     const notify = () => toast("Delete successfuly!");
     useEffect(()=>{
-        fetch('https://server-v-2.vercel.app/user')
+        fetch('http://localhost:5000/user')
         .then(res => res.json())
         .then(data => setUsers(data))
     },[])
 
     // const {users=[]} = useQuery({
     //   queryKey: ['user'],
-    //   queryFn: ()=>  fetch('https://server-v-2.vercel.app/user')
+    //   queryFn: ()=>  fetch('http://localhost:5000/user')
     //   .then((res) => res.json())
     // })
     const handleDelete =(user)=> {
         console.log(user.email)
-        fetch(`https://server-v-2.vercel.app/deleteUser/${user.email}`, {
+        fetch(`http://localhost:5000/deleteUser/${user.email}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

@@ -9,7 +9,7 @@ const LeftContainer = () => {
     const email = user?.email;
    
     useEffect(()=>{
-        fetch(`https://server-v-2.vercel.app/${email}`)
+        fetch(`http://localhost:5000/${email}`)
         .then((res) => res.json())
         .then((data) => {
             setRole(data.role)

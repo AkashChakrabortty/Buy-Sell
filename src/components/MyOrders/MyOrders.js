@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [data,setDate] = useState()
     console.log(data)
     useEffect(()=> {
-        fetch(`https://server-v-2.vercel.app/dashboard/myOrders/${user.email}`)
+        fetch(`http://localhost:5000/dashboard/myOrders/${user.email}`)
         .then(res => res.json())
         .then(data => setDate(data))
     },[user])

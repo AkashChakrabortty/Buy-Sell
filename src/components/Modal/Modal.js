@@ -22,7 +22,7 @@ const Modal = ({item}) => {
             ProductPhoto: item.ProductPhotoUrl
         }
    
-        fetch("https://server-v-2.vercel.app/booking", {
+        fetch("http://localhost:5000/booking", {
             method: "POST",
             headers: {
               "content-type": "application/json",

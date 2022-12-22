@@ -4,55 +4,52 @@ import { AiOutlineCheck } from 'react-icons/ai';
 const AdvertisedItems = () => {
     const [data,setData] = useState([]);
     useEffect( ()=>{
-        // fetch('https://server-v-2.vercel.app/advertiseItems')
-        // .then(res => res.json())
-        // .then(data => setData(data))
-
-        axios.get('https://server-v-2.vercel.app/advertiseItems')
+        axios.get('http://localhost:5000/advertiseItems')
         .then(data => setData(data.data)) 
     } ,[])
-    // console.log(data)
     return (
-        <div className='container'>
-            <div className="row row-cols-1 row-cols-sm-2">
-                {
-                    data?.map(item => {
-                        return <>
-                           <div class="card">
-                   <img
-                     src={item.ProductPhotoUrl}
-                     class="card-img-top"
-                     alt={item.ProductName}
-                   />
-                   <div class="card-body">
-                     <h5 class="card-title">Model:{item.ProductName}</h5>
-                     <h5 class="card-title">
-                       Location:{item.SellerLocation}
-                     </h5>
-                     <h5 class="card-title">
-                       Original Price:{item.ProductOriginalPrice}
-                     </h5>
-                     <h5 class="card-title">
-                       Reseal price:{item.ProductResalePrice}
-                     </h5>
-                     <h5 class="card-title">
-                       Year Of Purchase:{item.YearOfPurchase}
-                     </h5>
-                     <h5 class="card-title">
-                       Seller name:{item.SellerName}{item.SellerVerify ? (
+      <div className="container">
+        {
+          data?.length>0 ?  <h2 className="text-center"> Advertisement </h2> : undefined
+        }
+        <div className="row row-cols-1 row-cols-sm-2">
+          {data?.map((item) => {
+            return (
+              <>
+                <div class="card">
+                  <img
+                    src={item.ProductPhotoUrl}
+                    class="card-img-top"
+                    alt={item.ProductName}
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Model:{item.ProductName}</h5>
+                    <h5 class="card-title">Location:{item.SellerLocation}</h5>
+                    <h5 class="card-title">
+                      Original Price:{item.ProductOriginalPrice}
+                    </h5>
+                    <h5 class="card-title">
+                      Reseal price:{item.ProductResalePrice}
+                    </h5>
+                    <h5 class="card-title">
+                      Year Of Purchase:{item.YearOfPurchase}
+                    </h5>
+                    <h5 class="card-title">
+                      Seller name:{item.SellerName}
+                      {item.SellerVerify ? (
                         <AiOutlineCheck className="text-primary"></AiOutlineCheck>
                       ) : undefined}
-                     </h5>
-                     <h5 class="card-title">Post Time:{item.PostTime}</h5>
-                     <h5 class="card-title">Sales status:{item.SalesStatus}</h5>
-                   </div>
-                 </div>
-                        
-                        </>
-                    })
-                }
-            </div>
+                    </h5>
+                    <h5 class="card-title">Post Time:{item.PostTime}</h5>
+                    <h5 class="card-title">Sales status:{item.SalesStatus}</h5>
+                  </div>
+                </div>
+              </>
+            );
+          })}
         </div>
+        
+      </div>
     );
 };
 

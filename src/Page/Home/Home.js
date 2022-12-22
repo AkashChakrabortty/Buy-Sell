@@ -5,12 +5,16 @@ import ProductCategories from '../../components/ProductCategories/ProductCategor
 import Warning from '../../components/Warning/Warning';
 const Home = () => {
     return (
-        <div>
-            <Banner></Banner>
-            <AdvertisedItems></AdvertisedItems>
-            <ProductCategories></ProductCategories>
-            <Warning></Warning>
-        </div>
+      <div>
+        <Banner></Banner>
+        <hr />
+        <AdvertisedItems></AdvertisedItems>
+       
+        <ProductCategories></ProductCategories>
+        <hr />
+        <Warning></Warning>
+        <hr />
+      </div>
     );
 };
 

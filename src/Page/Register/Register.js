@@ -8,6 +8,7 @@ const Register = () => {
     const [isSeller,setIsSeller] = useState(false);
     const [email,setEmail] = useState('')
     const [token,setToken] = useToken(email)
+    const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
     if(token){
       navigate('/')
@@ -17,12 +18,13 @@ const Register = () => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+        setLoader(true);
         const email = event.target.email.value;
         const password = event.target.password.value;
         const name = event.target.name.value;
         const photoUrl = event.target.photoUrl.value;
         const role = isSeller;
-        // console.log(role)
+     
         const userdb = {
           email:email,
           password: password,
@@ -35,7 +37,7 @@ const Register = () => {
           .then((userCredential) => {
             updateUser(name, photoUrl);
 
-            fetch('https://server-v-2.vercel.app/storeUser', {
+            fetch('http://localhost:5000/storeUser', {
               method: 'POST',
               headers: {
                 "content-type": "application/json",
@@ -56,10 +58,13 @@ const Register = () => {
 
   return (
     <div>
-   
-        <div className="text-center mt-4">
-          <form className="col-6 mx-auto"  onSubmit={handleSubmit}>
-         
+      <div className="text-center mt-4">
+        {loader ? (
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        ) : (
+          <form className="col-6 mx-auto" onSubmit={handleSubmit}>
             <h1 className="h3 mb-3 fw-normal">Please Register</h1>
 
             <div className="form-floating">
@@ -108,16 +113,28 @@ const Register = () => {
             </div>
 
             <div className="form-check d-flex mt-2">
-            <input className="form-check-input" type="checkbox" id="flexCheckDefault" onClick={handleRole}/>
-            <label className="form-check-label ms-2" htmlFor="flexCheckDefault">
-               Seller
-            </label>
-           </div>
-            <button className="w-100 btn btn-lg btn-outline-primary" type="submit">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="flexCheckDefault"
+                onClick={handleRole}
+              />
+              <label
+                className="form-check-label ms-2"
+                htmlFor="flexCheckDefault"
+              >
+                Seller
+              </label>
+            </div>
+            <button
+              className="w-100 btn btn-lg btn-outline-primary"
+              type="submit"
+            >
               Register
             </button>
           </form>
-        </div>
+        )}
+      </div>
     </div>
   );
 };

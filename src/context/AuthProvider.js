@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
             // const uid = user.uid;
             setUser(user);
 
-            fetch(`https://server-v-2.vercel.app/${user.email}`)
+            fetch(`http://localhost:5000/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
               setRole(data.role)

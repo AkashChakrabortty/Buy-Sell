@@ -6,7 +6,7 @@ const ReportedItems = () => {
     const [reFetch, setReFetch] = useState(false);
     const notify = () => toast("Deleted");
     useEffect(() => {
-      fetch(`https://server-v-2.vercel.app/report`)
+      fetch(`http://localhost:5000/report`)
         .then((res) => res.json())
         .then((data) => {
           setData(data);
@@ -16,7 +16,7 @@ const ReportedItems = () => {
 
     const handleDelete = (item)=> {
      console.log(item._id)
-     fetch(`https://server-v-2.vercel.app/deleteProduct/${item._id}`, {
+     fetch(`http://localhost:5000/deleteProduct/${item._id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

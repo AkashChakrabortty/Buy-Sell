@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,10 +9,11 @@ const AddAProuct = () => {
   const notify = () => toast("One product add successfuly!");
   const navigate = useNavigate();
 
-  // const [photoURL,setPhotoUrl] =  useState('');
+    const [loader, setLoader] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+     setLoader(true);
     const name = event.target.name.value;
     const price = event.target.price.value;
     const price1 = event.target.original.value;
@@ -27,16 +28,13 @@ const AddAProuct = () => {
     const img = event.target.image.files[0];
     const formData = new FormData();
     formData.append('image',img)
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_API_KEY}`
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgbb_key}`;
 
     fetch(url,{
       method: 'POST',
       body: formData,
     }).then(res => res.json())
     .then(data => {
-      // setPhotoUrl(data.data.display_url)
-      // console.log(data.data.display_url)
-      // console.log(photoURL)
       const productInfo = {
         ProductName: name,
         ProductResalePrice: price,
@@ -57,9 +55,7 @@ const AddAProuct = () => {
 
       };
 
-      // console.log(productInfo)
-
-       fetch("https://server-v-2.vercel.app/addAProduct", {
+       fetch("http://localhost:5000/addAProduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -84,120 +80,136 @@ const AddAProuct = () => {
   return (
     <div>
       <div className="form-signin col-8 m-auto">
-        <form onSubmit={handleSubmit}>
-          <h1 className="h4 mb-3 fw-normal">Add A Prouct</h1>
-          <div className="form-floating">
-            <input
-              type="text"
-              name="name"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Product Name"
-              required
-            />
-            <label htmlFor="floatingInput">Product Name:</label>
+        {loader ? (
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
           </div>
-          <div className="form-floating my-2">
-            <input
-              type="number"
-              name="price"
-              className="form-control"
-              id="floatingPassword"
-              placeholder="Resale price"
-              required
-            />
-            <label htmlFor="floatingPassword">Resale Price</label>
-          </div>
-          <div className="form-floating my-2">
-            <input
-              type="number"
-              name="original"
-              className="form-control"
-              id="floatingPassword"
-              placeholder="Original price"
-              required
-            />
-            <label htmlFor="floatingPassword">Original Price</label>
-          </div>
-          <div className="input-group mt-2">
-            <select
-              className="form-select"
-              id="inputGroupSelect04"
-              aria-label="Example select with button addon"
-              name="condition"
-              required
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <h1 className="h4 mb-3 fw-normal">Add A Prouct</h1>
+            <div className="form-floating">
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Product Name"
+                required
+              />
+              <label htmlFor="floatingInput">Product Name:</label>
+            </div>
+            <div className="form-floating my-2">
+              <input
+                type="number"
+                name="price"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Resale price"
+                required
+              />
+              <label htmlFor="floatingPassword">Resale Price</label>
+            </div>
+            <div className="form-floating my-2">
+              <input
+                type="number"
+                name="original"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Original price"
+                required
+              />
+              <label htmlFor="floatingPassword">Original Price</label>
+            </div>
+            <div className="input-group mt-2">
+              <select
+                className="form-select"
+                id="inputGroupSelect04"
+                aria-label="Example select with button addon"
+                name="condition"
+                required
+              >
+                <option defaultValue>Condition...</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+              </select>
+            </div>
+            <div className="form-floating my-2">
+              <input
+                type="text"
+                name="mobile"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Mobile number:"
+                required
+              />
+              <label htmlFor="floatingInput">Mobile number:</label>
+            </div>
+            <div className="form-floating">
+              <input
+                type="text"
+                name="location"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Location:"
+                required
+              />
+              <label htmlFor="floatingInput">Location :</label>
+            </div>
+            <div className="form-floating my-2">
+              <input
+                type="text"
+                name="description"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Description:"
+                required
+              />
+              <label htmlFor="floatingInput">Description :</label>
+            </div>
+            <div className="form-floating">
+              <input
+                type="text"
+                name="year"
+                className="form-control"
+                id="floatingInput"
+                placeholder=" Year of purchase:"
+                required
+              />
+              <label htmlFor="floatingInput"> Year of purchase:</label>
+            </div>
+            <div className="input-group mt-2">
+              <select
+                className="form-select"
+                id="inputGroupSelect04"
+                aria-label="Example select with button addon"
+                name="category"
+                required
+              >
+                <option defaultValue>Category...</option>
+                <option value="Redmi">Redmi</option>
+                <option value="Realme">Realme</option>
+                <option value="Oppo">Oppo</option>
+              </select>
+            </div>
+            <div className="my-3">
+              <input
+                className="form-control"
+                required
+                name="image"
+                type="file"
+                id="formFile"
+                accept=".jpg"
+              />
+            </div>
+            <button
+              className="w-100 btn btn-outline-primary my-2"
+              type="submit"
             >
-              <option defaultValue>Condition...</option>
-              <option value="Excellent">Excellent</option>
-              <option value="Good">Good</option>
-              <option value="Fair">Fair</option>
-            </select>
-          </div>
-          <div className="form-floating my-2">
-            <input
-              type="text"
-              name="mobile"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Mobile number:"
-              required
-            />
-            <label htmlFor="floatingInput">Mobile number:</label>
-          </div>
-          <div className="form-floating">
-            <input
-              type="text"
-              name="location"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Location:"
-              required
-            />
-            <label htmlFor="floatingInput">Location :</label>
-          </div>
-          <div className="form-floating my-2">
-            <input
-              type="text"
-              name="description"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Description:"
-              required
-            />
-            <label htmlFor="floatingInput">Description :</label>
-          </div>
-          <div className="form-floating">
-            <input
-              type="text"
-              name="year"
-              className="form-control"
-              id="floatingInput"
-              placeholder=" Year of purchase:"
-              required
-            />
-            <label htmlFor="floatingInput"> Year of purchase:</label>
-          </div>
-          <div className="input-group mt-2">
-            <select
-              className="form-select"
-              id="inputGroupSelect04"
-              aria-label="Example select with button addon"
-              name="category"
-              required
-            >
-              <option defaultValue>Category...</option>
-              <option value="Redmi">Redmi</option>
-              <option value="Realme">Realme</option>
-              <option value="Oppo">Oppo</option>
-            </select>
-          </div>
-          <div className="my-3">
-            <input className="form-control" required name="image" type="file" id="formFile" accept=".jpg"/>
-          </div>
-          <button className="w-100 btn btn-outline-primary my-2" type="submit">
-            Submit
-          </button>
-        </form>
+              Submit
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
