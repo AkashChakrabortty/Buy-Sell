@@ -9,7 +9,6 @@ const Home = () => {
         <Banner></Banner>
         <hr />
         <AdvertisedItems></AdvertisedItems>
-       
         <ProductCategories></ProductCategories>
         <hr />
         <Warning></Warning>
