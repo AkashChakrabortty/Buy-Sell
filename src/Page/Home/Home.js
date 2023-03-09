@@ -5,7 +5,7 @@ import ProductCategories from '../../components/ProductCategories/ProductCategor
 import Warning from '../../components/Warning/Warning';
 const Home = () => {
     return (
-      <div>
+      <div className='col-12 col-sm-10 mx-auto mt-2'>
         <Banner></Banner>
         <hr />
         <AdvertisedItems></AdvertisedItems>
