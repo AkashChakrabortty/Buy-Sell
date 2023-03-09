@@ -8,7 +8,7 @@ const Nav = () => {
     logout();
   };
   return (
-    <nav class="navbar bg-white col-12 col-sm-10 mx-auto shadow p-sm-3 ">
+    <nav class="navbar bg-white col-12 col-sm-10 mx-auto shadow-sm p-sm-3 ">
       <div class="container-fluid">
         <div className="left col-md-10 col-6">
         <Link to="/" className="text-decoration-none fs-5 text-info fw-bold">
