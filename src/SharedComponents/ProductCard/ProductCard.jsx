@@ -38,7 +38,7 @@ const ProductCard = ({item}) => {
           <Link to={`/category/${item.ProductCategory}`}>
             <div className="col-4 mx-auto mb-4">
             <button
-              className="w-100 btn btn-outline-info"
+              className="w-100 btn btn-outline-info fw-bold"
               type="submit"
             >
               See all
