@@ -9,7 +9,7 @@ import Router from './Route/Route';
 function App() {
 
   return (
-    <div>
+    <div className="bg-light">
    <RouterProvider router={Router} />
    <ToastContainer />
     </div>
