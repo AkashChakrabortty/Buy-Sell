@@ -8,15 +8,15 @@ const Nav = () => {
     logout();
   };
   return (
-    <nav class="navbar bg-white col-12 col-sm-10 mx-auto shadow p-3 ">
+    <nav class="navbar bg-white col-12 col-sm-10 mx-auto shadow p-sm-3 ">
       <div class="container-fluid">
-        <div className="left col-sm-10 col-6">
+        <div className="left col-md-10 col-6">
         <Link to="/" className="text-decoration-none fs-5 text-info fw-bold">
           Buy-Sell
         </Link>
         </div>
 
-        <div class="d-flex justify-content-between right col-sm-2 col-6">
+        <div class="d-flex justify-content-between right col-md-2 col-6">
         <Link to="/" className="text-decoration-none fs-5 text-black">
           Home
         </Link>
