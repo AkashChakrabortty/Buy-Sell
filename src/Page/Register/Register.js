@@ -58,13 +58,13 @@ const Register = () => {
 
   return (
     <div>
-      <div className="text-center mt-4">
+      <div className="text-center mt-4 ">
         {loader ? (
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         ) : (
-          <form className="col-6 mx-auto" onSubmit={handleSubmit}>
+          <form className="col-6 mx-auto bg-white shadow-sm p-3" onSubmit={handleSubmit}>
             <h1 className="h3 mb-3 fw-normal">Please Register</h1>
 
             <div className="form-floating">
@@ -127,7 +127,7 @@ const Register = () => {
               </label>
             </div>
             <button
-              className="w-100 btn btn-lg btn-outline-primary"
+              className="w-100 btn btn-lg btn-outline-info"
               type="submit"
             >
               Register

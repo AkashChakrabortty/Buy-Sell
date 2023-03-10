@@ -12,7 +12,6 @@ const AllSellers = () => {
       .then((data) => setUsers(data));
   }, [reFetch]);
   const handleDelete = (user) => {
-    console.log(user.email);
     fetch(`https://buy-sell-server-eosin.vercel.app/deleteUser/${user.email}`, {
       method: "DELETE",
       headers: {
@@ -21,13 +20,12 @@ const AllSellers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setReFetch(!reFetch)
+        setReFetch(!reFetch);
         notify("Delete successfuly!");
       });
   };
 
   const handlVerify = (user) => {
-    console.log(user);
     fetch(`https://buy-sell-server-eosin.vercel.app/verifyUser/${user.email}`, {
       method: "PATCH",
       headers: {
@@ -36,8 +34,7 @@ const AllSellers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setReFetch(!reFetch)
+        setReFetch(!reFetch);
         notify("Verify successfuly!");
       });
   };
@@ -49,11 +46,13 @@ const AllSellers = () => {
             <>
               {user.role === "seller" ? (
                 <div class="card">
-                  <img
-                    src={user.photoUrl}
-                    class="card-img-top"
-                    alt={user.name}
-                  />
+                  <div className="img col-4 mx-auto m-2 p-2">
+                    <img
+                      src={user.photoUrl}
+                      class="card-img-top"
+                      alt={user.name}
+                    />
+                  </div>
                   <div class="card-body">
                     <h5 class="card-title">
                       Name:{user.name}
@@ -64,22 +63,25 @@ const AllSellers = () => {
                     <h5 class="card-title">Email:{user.email}</h5>
                   </div>
                   {user.verify ? undefined : (
-                    <button
-                      className="w-100 btn btn-outline-primary mb-2"
-                      type="submit"
-                      onClick={() => handlVerify(user)}
-                    >
-                      Verify
-                    </button>
+                    <div className="col-4 mx-auto mb-4">
+                      <button
+                        className="w-100 btn btn-outline-info mb-2"
+                        type="submit"
+                        onClick={() => handlVerify(user)}
+                      >
+                        Verify
+                      </button>
+                    </div>
                   )}
-
-                  <button
-                    className="w-100 btn btn-outline-primary"
-                    type="submit"
-                    onClick={() => handleDelete(user)}
-                  >
-                    Delete
-                  </button>
+                  <div className="col-4 mx-auto mb-4">
+                    <button
+                      className="w-100 btn btn-outline-info"
+                      type="submit"
+                      onClick={() => handleDelete(user)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               ) : undefined}
             </>

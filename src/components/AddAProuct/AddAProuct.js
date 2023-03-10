@@ -79,14 +79,14 @@ const AddAProuct = () => {
   };
   return (
     <div>
-      <div className="form-signin col-8 m-auto">
+      <div className="form-signin col-8 m-auto bg-white shadow p-3">
         {loader ? (
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h1 className="h4 mb-3 fw-normal">Add A Prouct</h1>
+            <h1 className="h4 mb-3 fw-normal text-center">Add A Prouct</h1>
             <div className="form-floating">
               <input
                 type="text"
@@ -202,12 +202,14 @@ const AddAProuct = () => {
                 accept=".jpg"
               />
             </div>
+            <div className="col-4 mx-auto mb-4">
             <button
-              className="w-100 btn btn-outline-primary my-2"
+              className="w-100 btn btn-outline-info my-2"
               type="submit"
             >
               Submit
             </button>
+            </div>
           </form>
         )}
       </div>
