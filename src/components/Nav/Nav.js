@@ -10,16 +10,19 @@ const Nav = () => {
   return (
     <nav class="navbar bg-white col-12 col-sm-10 mx-auto shadow-sm p-sm-3 ">
       <div class="container-fluid">
-        <div className="left col-md-10 col-6">
+        <div className="left col-md-8 col-5">
         <Link to="/" className="text-decoration-none fs-5 text-info fw-bold">
           Buy-Sell
         </Link>
         </div>
 
-        <div class="d-flex justify-content-between right col-md-2 col-6">
-        <Link to="/" className="text-decoration-none fs-5 text-black">
-          Home
-        </Link>
+        <div class="d-flex justify-content-between right col-md-4 col-7">
+       
+       {
+        user? undefined :  <Link to="/" className="text-decoration-none fs-5 text-black">
+        Home
+      </Link>
+       }
           <Link to="/blogs" className="text-decoration-none fs-5 text-black">
             Blogs
           </Link>

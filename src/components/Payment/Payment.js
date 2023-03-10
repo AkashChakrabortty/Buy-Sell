@@ -3,8 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 const Payment = () => {
     const location = useLocation();
-//   console.log(location.pathname.split('/')[3])
-
   const [data,setDate] = useState([])
   const [item,setItem] = useState([])
   useEffect(()=> {
@@ -16,11 +14,15 @@ const Payment = () => {
         <div className='container'>
            <div className="row row-cols-1 row-cols-sm-2">
            <div class="card">
-                   <img
+           <div className='img col-4 mx-auto m-2 p-2'>
+           <img
                      src={item.ProductPhoto}
                      class="card-img-top"
                      alt={item.ProductName}
                    />
+                  </div>
+
+                 
                    <div class="card-body">
                      <h5 class="card-title">Model:{item.ProductName}</h5>
                      <h5 class="card-title">

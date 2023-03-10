@@ -4,7 +4,7 @@ import React from "react";
 const Blog = () => {
  
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 bg-white shadow-sm p-3">
       <div className="q1">
         <h2>What are the different ways to manage a state in a React application?</h2>
         <p>

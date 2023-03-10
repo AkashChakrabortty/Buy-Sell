@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import React from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-import { Link } from "react-router-dom";
 import ProductCard from '../../SharedComponents/ProductCard/ProductCard';
 const ProductCategories = () => {
 const {data=[]} = useQuery({

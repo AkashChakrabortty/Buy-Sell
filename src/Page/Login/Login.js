@@ -53,7 +53,7 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="form-signin col-6 m-auto text-center mt-4">
+      <div className="form-signin col-6 m-auto text-center mt-4 bg-white shadow-sm p-3">
         {loader ? (
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -83,7 +83,7 @@ const Login = () => {
                 <label htmlFor="floatingPassword">Password</label>
               </div>
 
-              <button className="w-100 btn btn-outline-primary" type="submit">
+              <button className="w-100 btn btn-outline-info" type="submit">
                 Log in
               </button>
             </form>
@@ -95,7 +95,7 @@ const Login = () => {
               </div>
               <div className="create">
                 <Link to="/register">
-                  <button className="btn btn-primary">Register</button>
+                  <button className="btn btn-info">Register</button>
                 </Link>
               </div>
             </div>

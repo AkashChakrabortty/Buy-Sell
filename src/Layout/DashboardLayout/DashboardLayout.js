@@ -7,8 +7,8 @@ const DashboardLayout = () => {
   return (
     <div>
       <Nav></Nav>
-      <div className="container d-flex">
-        <div className="left col-4">
+      <div className="container d-flex gap-5 mt-2">
+        <div className="left col-2">
         <LeftContainer></LeftContainer>
         </div>
         <div className="right col-8">

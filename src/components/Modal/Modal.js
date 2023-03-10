@@ -7,7 +7,6 @@ const Modal = ({item}) => {
     const notify = ()=> toast('Booking done')
     const handleSubmit = (event)=> {
         event.preventDefault();
-        // console.log(item)
         const location = event.target.location.value;
         const mobile = event.target.mobile.value;
        
@@ -148,7 +147,7 @@ const Modal = ({item}) => {
 
                           </div>
                          <div className="modal-footer">
-                         <button type="submit" class="btn btn-primary">
+                         <button type="submit" class="btn btn-info">
                               Submit
                             </button>
                          </div>

@@ -16,7 +16,7 @@ const LeftContainer = () => {
       });
     },[user])
     return (
-        <div className=''>
+        <div className='bg-white shadow-sm'>
             {
               role === 'seller' ? <SellerLeft></SellerLeft> : undefined
             }
