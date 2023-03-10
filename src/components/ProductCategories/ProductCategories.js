@@ -11,7 +11,9 @@ const {data=[]} = useQuery({
 })
   return (
     <div className="container">
-      <h2 className="text-center">Product Categories</h2>
+      <h2 className="text-center">
+      <span className='text-info fw-bold'>Product Categories</span>
+       </h2>
       <div className="row mt-3 mb-3 row-cols-1 row-cols-sm-3">
         <div className="redmi">
           <h2 className='text-center'>Redmi</h2>
